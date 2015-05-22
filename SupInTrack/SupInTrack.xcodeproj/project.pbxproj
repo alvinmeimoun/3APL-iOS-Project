@@ -14,6 +14,7 @@
 		E15B52B51B0F3445000AF2B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B41B0F3445000AF2B9 /* Images.xcassets */; };
 		E15B52B81B0F3445000AF2B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B61B0F3445000AF2B9 /* LaunchScreen.xib */; };
 		E15B52C41B0F3445000AF2B9 /* SupInTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */; };
+		E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		E15B52BD1B0F3445000AF2B9 /* SupInTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupInTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B52C21B0F3445000AF2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupInTrackTests.m; sourceTree = "<group>"; };
+		E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupinfoServices.m; path = Services/SupinfoServices.m; sourceTree = "<group>"; };
+		E1E9D8A81B0F5D54004DF9E0 /* SupinfoServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupinfoServices.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		E15B52A61B0F3445000AF2B9 /* SupInTrack */ = {
 			isa = PBXGroup;
 			children = (
+				E1E9D8A51B0F5A02004DF9E0 /* Services */,
 				E15B52AB1B0F3445000AF2B9 /* AppDelegate.h */,
 				E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */,
 				E15B52AE1B0F3445000AF2B9 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				E15B52C21B0F3445000AF2B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1E9D8A51B0F5A02004DF9E0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */,
+				E1E9D8A81B0F5D54004DF9E0 /* SupinfoServices.h */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */,
 				E15B52B01B0F3445000AF2B9 /* ViewController.m in Sources */,
 				E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */,
 				E15B52AA1B0F3445000AF2B9 /* main.m in Sources */,
@@ -418,6 +432,7 @@
 				E15B52C91B0F3445000AF2B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E15B52CA1B0F3445000AF2B9 /* Build configuration list for PBXNativeTarget "SupInTrackTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +441,7 @@
 				E15B52CC1B0F3445000AF2B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
