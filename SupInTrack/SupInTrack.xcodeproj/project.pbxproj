@@ -14,6 +14,9 @@
 		E15B52B51B0F3445000AF2B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B41B0F3445000AF2B9 /* Images.xcassets */; };
 		E15B52B81B0F3445000AF2B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B61B0F3445000AF2B9 /* LaunchScreen.xib */; };
 		E15B52C41B0F3445000AF2B9 /* SupInTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */; };
+		E1B20D5A1B12137B007CEF8E /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B20D591B12137B007CEF8E /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		E1B20D5D1B1213DD007CEF8E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */; };
+		E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B20D601B12223C007CEF8E /* CampusModel.m */; };
 		E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +44,11 @@
 		E15B52BD1B0F3445000AF2B9 /* SupInTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupInTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B52C21B0F3445000AF2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupInTrackTests.m; sourceTree = "<group>"; };
+		E1B20D591B12137B007CEF8E /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Libs/GDataXMLNode.m; sourceTree = "<group>"; };
+		E1B20D5B1B1213A4007CEF8E /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Libs/GDataXMLNode.h; sourceTree = "<group>"; };
+		E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		E1B20D5F1B122214007CEF8E /* CampusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CampusModel.h; path = Models/CampusModel.h; sourceTree = "<group>"; };
+		E1B20D601B12223C007CEF8E /* CampusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CampusModel.m; path = Models/CampusModel.m; sourceTree = "<group>"; };
 		E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupinfoServices.m; path = Services/SupinfoServices.m; sourceTree = "<group>"; };
 		E1E9D8A81B0F5D54004DF9E0 /* SupinfoServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupinfoServices.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -50,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E1B20D5D1B1213DD007CEF8E /* libxml2.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +75,7 @@
 		E15B529B1B0F3445000AF2B9 = {
 			isa = PBXGroup;
 			children = (
+				E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */,
 				E15B52A61B0F3445000AF2B9 /* SupInTrack */,
 				E15B52C01B0F3445000AF2B9 /* SupInTrackTests */,
 				E15B52A51B0F3445000AF2B9 /* Products */,
@@ -84,6 +94,8 @@
 		E15B52A61B0F3445000AF2B9 /* SupInTrack */ = {
 			isa = PBXGroup;
 			children = (
+				E1B20D5E1B1221DE007CEF8E /* Models */,
+				E1B20D571B12130A007CEF8E /* Libs */,
 				E1E9D8A51B0F5A02004DF9E0 /* Services */,
 				E15B52AB1B0F3445000AF2B9 /* AppDelegate.h */,
 				E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */,
@@ -121,6 +133,24 @@
 				E15B52C21B0F3445000AF2B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E1B20D571B12130A007CEF8E /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				E1B20D5B1B1213A4007CEF8E /* GDataXMLNode.h */,
+				E1B20D591B12137B007CEF8E /* GDataXMLNode.m */,
+			);
+			name = Libs;
+			sourceTree = "<group>";
+		};
+		E1B20D5E1B1221DE007CEF8E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E1B20D5F1B122214007CEF8E /* CampusModel.h */,
+				E1B20D601B12223C007CEF8E /* CampusModel.m */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		E1E9D8A51B0F5A02004DF9E0 /* Services */ = {
@@ -234,7 +264,9 @@
 			files = (
 				E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */,
 				E15B52B01B0F3445000AF2B9 /* ViewController.m in Sources */,
+				E1B20D5A1B12137B007CEF8E /* GDataXMLNode.m in Sources */,
 				E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */,
+				E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */,
 				E15B52AA1B0F3445000AF2B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +395,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = SupInTrack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -373,6 +414,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2",
+				);
+				"HEADER_SEARCH_PATHS[arch=*]" = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = SupInTrack/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

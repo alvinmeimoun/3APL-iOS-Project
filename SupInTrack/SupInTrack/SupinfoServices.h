@@ -10,12 +10,16 @@
 #define SupInTrack_SupinfoServices_h
 
 #import <Foundation/Foundation.h>
+#import "Libs/GDataXMLNode.h"
+#import "Models/CampusModel.h"
 
 static NSString* REGEX_CAMPUS_LIST = @"<P id=\"campus-.+<BR>";
+static NSString* REGEX_CAMPUS_LIST_URL = @"<IMG src=\"(.*)\"/>";
+static NSString* REGEX_EXTRACT_HREF = @"<a\\s+(?:[^>]*?\\s+)?href=\"([^\"]*)\"";
 
 @interface SupinfoServices : NSObject
 
-+(void) getCampusesFromSupinfoWebsite:(NSError*) error;
++(NSArray*) getCampusesFromSupinfoWebsite:(NSError*) error;
 
 @end
 
