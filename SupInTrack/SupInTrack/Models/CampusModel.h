@@ -15,6 +15,9 @@
 
 @property(nonatomic, weak) NSString* name;
 @property(nonatomic, weak) NSString* pageUrl;
+@property(nonatomic, weak) NSString* address;
+@property(nonatomic, weak) NSNumber* latitude;
+@property(nonatomic, weak) NSNumber* longitude;
 
 @end
 

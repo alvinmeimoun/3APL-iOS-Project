@@ -12,5 +12,8 @@
 
 @synthesize name;
 @synthesize pageUrl;
+@synthesize address;
+@synthesize latitude;
+@synthesize longitude;
 
 @end

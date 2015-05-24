@@ -22,8 +22,7 @@
     
     
     //TEST
-    NSError* error;
-    [SupinfoServices getCampusesFromSupinfoWebsite:error];
+    [SupinfoServices getCampusesFromSupinfoWebsiteWithCompletionHandler:nil];
 
     
 }

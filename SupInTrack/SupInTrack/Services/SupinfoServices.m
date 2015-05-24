@@ -10,11 +10,15 @@
 
 @implementation SupinfoServices
 
-+(NSArray*) getCampusesFromSupinfoWebsite:(NSError*) error{
++(void) getCampusesFromSupinfoWebsiteWithCompletionHandler:(void(^)(NSArray * result, NSError* error))handler{
+    NSError* error;
     //Récupération de la page web
     NSString* htmlString = [NSString stringWithContentsOfURL: [NSURL URLWithString:@"http://www.supinfo.com/campus"] encoding:NSUTF8StringEncoding error:&error];
     
-    if(error != nil) return nil;
+    if(error != nil){
+        if(handler != nil) handler(nil, error);
+        return;
+    }
     NSMutableArray* returnArray = [[NSMutableArray alloc] init];
     
     //Application regex
@@ -26,8 +30,8 @@
         
         NSMutableString* campusListItemHtml = [NSMutableString stringWithString:[[[htmlString substringWithRange:[match range]] stringByAppendingString:@"</P>"] stringByReplacingOccurrencesOfString:@"<BR>" withString:@""]];
         //Supression du tag img qui n'étais pas fermé
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"<img[^>]*>" options:NSRegularExpressionCaseInsensitive error:nil];
-        [regex replaceMatchesInString:campusListItemHtml
+        NSRegularExpression *regexTagImg = [NSRegularExpression regularExpressionWithPattern:@"<img[^>]*>" options:NSRegularExpressionCaseInsensitive error:nil];
+        [regexTagImg replaceMatchesInString:campusListItemHtml
                               options:0
                                 range:NSMakeRange(0, campusListItemHtml.length)
                          withTemplate:@""];
@@ -44,27 +48,61 @@
         
         NSRegularExpression* regexHref = [NSRegularExpression regularExpressionWithPattern:REGEX_EXTRACT_HREF options:0 error:&error];
         NSArray* matchesHrefInCampusList = [regexHref matchesInString:campusListItemALinkTag.XMLString options:0 range:NSMakeRange(0, campusListItemALinkTag.XMLString.length)];
-        if(matchesHrefInCampusList.count == 0){
-            break;
+        if(matchesHrefInCampusList.count != 0){
+            NSString* campusLink = [campusListItemALinkTag.XMLString substringWithRange:(NSRange)[[matchesHrefInCampusList firstObject] range]];
+            campusLink = [[campusLink substringToIndex:campusLink.length-1] substringFromIndex:9];
+            
+            model.name = campusName;
+            model.pageUrl = campusLink;
+            
+            
+            //Obtention des details depuis la page du campus
+            NSString* htmlDetailsString = [NSString stringWithContentsOfURL: [NSURL URLWithString:campusLink] encoding:NSUTF8StringEncoding error:&error];
+            if(error != nil){
+                if(handler != nil) handler(nil, error);
+                return;
+            }
+            
+            NSRegularExpression* regexDetailsMain = [NSRegularExpression regularExpressionWithPattern:REGEX_CAMPUS_DETAILS_ADDRESS_START options:0 error:&error];
+            NSArray* regexDetailsMainMatches = [regexDetailsMain matchesInString:htmlDetailsString options:0 range:NSMakeRange(0, htmlDetailsString.length)];
+            if(regexDetailsMainMatches.count != 0){
+                int offset = 0;
+                NSString* regexDetalsMainString = [htmlDetailsString substringWithRange:(NSRange)[[regexDetailsMainMatches firstObject] range]];
+                NSArray* searchAddressSplitted = [regexDetalsMainString componentsSeparatedByString:@"<br>"];
+                NSArray* searchAddressSplitted1_b = [searchAddressSplitted[0] componentsSeparatedByString:@"<b>"];
+                NSString* addressLine1 = [searchAddressSplitted1_b[1] stringByReplacingOccurrencesOfString:@"</b>" withString:@""];
+                
+                if([addressLine1 isEqualToString:campusName]){
+                    offset++;
+                    if(searchAddressSplitted.count >= 2){
+                        addressLine1 = [[[searchAddressSplitted[1] stringByReplacingOccurrencesOfString:@"</b>" withString:@""] stringByReplacingOccurrencesOfString:@"<br/>" withString:@""] stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+                    } else {
+                        addressLine1 = @"";
+                    }
+                    
+                }
+                NSString* addressLine2 = [campusName stringByReplacingOccurrencesOfString:@"SUPINFO " withString:@""];
+                NSString* addressFinal = [NSString stringWithFormat:@"%@ %@", addressLine1, addressLine2];
+                model.address = addressFinal;
+                
+                //Geocoding
+                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+                [geocoder geocodeAddressString:addressFinal completionHandler:^(NSArray* placemarks, NSError* error){
+                    for (CLPlacemark* aPlacemark in placemarks)
+                    {
+                        // Process the placemark.
+                        NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+                        NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+                        NSLog(latDest1);
+                        NSLog(lngDest1);
+                    }
+                }];
+            }
+            
         }
 
-        NSString* campusLink = [campusListItemALinkTag.XMLString substringWithRange:(NSRange)[[matchesHrefInCampusList firstObject] range]];
-        campusLink = [[campusLink substringToIndex:campusLink.length-1] substringFromIndex:9];
-        
-        model.name = campusName;
-        model.pageUrl = campusLink;
-        
-        
-        //Obtention des details depuis la page du campus
-        NSString* htmlDetailsString = [NSString stringWithContentsOfURL: [NSURL URLWithString:@"http://www.supinfo.com/campus"] encoding:NSUTF8StringEncoding error:&error];
-        if(error != nil) return nil;
-        
-        GDataXMLDocument* detailsDocument = [[GDataXMLDocument alloc] initWithXMLString:htmlDetailsString options:0 error:&error];
-        
         
     }
-    
-    return returnArray;
 }
 
 @end
