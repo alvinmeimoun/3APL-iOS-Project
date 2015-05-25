@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		E15B52AA1B0F3445000AF2B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52A91B0F3445000AF2B9 /* main.m */; };
 		E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */; };
-		E15B52B01B0F3445000AF2B9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AF1B0F3445000AF2B9 /* ViewController.m */; };
+		E15B52B01B0F3445000AF2B9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AF1B0F3445000AF2B9 /* LoadViewController.m */; };
 		E15B52B31B0F3445000AF2B9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B11B0F3445000AF2B9 /* Main.storyboard */; };
 		E15B52B51B0F3445000AF2B9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B41B0F3445000AF2B9 /* Images.xcassets */; };
 		E15B52B81B0F3445000AF2B9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E15B52B61B0F3445000AF2B9 /* LaunchScreen.xib */; };
 		E15B52C41B0F3445000AF2B9 /* SupInTrackTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */; };
+		E184A9F91B13B05A00E800F9 /* CLLocationManager+Simulator.m in Sources */ = {isa = PBXBuildFile; fileRef = E184A9F81B13B05A00E800F9 /* CLLocationManager+Simulator.m */; };
 		E1B20D5A1B12137B007CEF8E /* GDataXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B20D591B12137B007CEF8E /* GDataXMLNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		E1B20D5D1B1213DD007CEF8E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */; };
 		E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B20D601B12223C007CEF8E /* CampusModel.m */; };
@@ -36,14 +37,16 @@
 		E15B52A91B0F3445000AF2B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E15B52AB1B0F3445000AF2B9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E15B52AE1B0F3445000AF2B9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E15B52AF1B0F3445000AF2B9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E15B52AE1B0F3445000AF2B9 /* LoadViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoadViewController.h; sourceTree = "<group>"; };
+		E15B52AF1B0F3445000AF2B9 /* LoadViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoadViewController.m; sourceTree = "<group>"; };
 		E15B52B21B0F3445000AF2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E15B52B41B0F3445000AF2B9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E15B52B71B0F3445000AF2B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E15B52BD1B0F3445000AF2B9 /* SupInTrackTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SupInTrackTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B52C21B0F3445000AF2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15B52C31B0F3445000AF2B9 /* SupInTrackTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SupInTrackTests.m; sourceTree = "<group>"; };
+		E184A9F71B13B04800E800F9 /* CLLocationManager+Simulator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CLLocationManager+Simulator.h"; path = "Extensions/CLLocationManager+Simulator.h"; sourceTree = "<group>"; };
+		E184A9F81B13B05A00E800F9 /* CLLocationManager+Simulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CLLocationManager+Simulator.m"; path = "Extensions/CLLocationManager+Simulator.m"; sourceTree = "<group>"; };
 		E1B20D591B12137B007CEF8E /* GDataXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GDataXMLNode.m; path = Libs/GDataXMLNode.m; sourceTree = "<group>"; };
 		E1B20D5B1B1213A4007CEF8E /* GDataXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GDataXMLNode.h; path = Libs/GDataXMLNode.h; sourceTree = "<group>"; };
 		E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -94,13 +97,14 @@
 		E15B52A61B0F3445000AF2B9 /* SupInTrack */ = {
 			isa = PBXGroup;
 			children = (
+				E184A9F61B13B01700E800F9 /* Extensions */,
 				E1B20D5E1B1221DE007CEF8E /* Models */,
 				E1B20D571B12130A007CEF8E /* Libs */,
 				E1E9D8A51B0F5A02004DF9E0 /* Services */,
 				E15B52AB1B0F3445000AF2B9 /* AppDelegate.h */,
 				E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */,
-				E15B52AE1B0F3445000AF2B9 /* ViewController.h */,
-				E15B52AF1B0F3445000AF2B9 /* ViewController.m */,
+				E15B52AE1B0F3445000AF2B9 /* LoadViewController.h */,
+				E15B52AF1B0F3445000AF2B9 /* LoadViewController.m */,
 				E15B52B11B0F3445000AF2B9 /* Main.storyboard */,
 				E15B52B41B0F3445000AF2B9 /* Images.xcassets */,
 				E15B52B61B0F3445000AF2B9 /* LaunchScreen.xib */,
@@ -133,6 +137,15 @@
 				E15B52C21B0F3445000AF2B9 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E184A9F61B13B01700E800F9 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E184A9F71B13B04800E800F9 /* CLLocationManager+Simulator.h */,
+				E184A9F81B13B05A00E800F9 /* CLLocationManager+Simulator.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		E1B20D571B12130A007CEF8E /* Libs */ = {
@@ -263,11 +276,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */,
-				E15B52B01B0F3445000AF2B9 /* ViewController.m in Sources */,
+				E15B52B01B0F3445000AF2B9 /* LoadViewController.m in Sources */,
 				E1B20D5A1B12137B007CEF8E /* GDataXMLNode.m in Sources */,
 				E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */,
 				E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */,
 				E15B52AA1B0F3445000AF2B9 /* main.m in Sources */,
+				E184A9F91B13B05A00E800F9 /* CLLocationManager+Simulator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

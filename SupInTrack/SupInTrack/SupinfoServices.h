@@ -13,6 +13,7 @@
 #import "Libs/GDataXMLNode.h"
 #import "Models/CampusModel.h"
 
+#import <math.h>
 #import <CoreLocation/CoreLocation.h>
 
 static NSString* REGEX_CAMPUS_LIST = @"<P id=\"campus-.+<BR>";
@@ -23,6 +24,8 @@ static NSString* REGEX_CAMPUS_DETAILS_ADDRESS_START = @"<div class=\"ville-adres
 @interface SupinfoServices : NSObject
 
 +(void) getCampusesFromSupinfoWebsiteWithCompletionHandler:(void(^)(NSArray * result, NSError* error))handler;
+
++(CampusModel*) getNearestCampusFromList:(NSArray*)campusList withLatitude:(float)latitude andLongitude:(float)longitude;
 
 @end
 

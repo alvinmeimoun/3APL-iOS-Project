@@ -101,6 +101,19 @@
         
         
         //Geocoding
+        __block BOOL isHandlerSent = false;
+        
+        //lancement timeout
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+            [NSThread sleepForTimeInterval:5.0f];
+            
+            if(handler != nil && !isHandlerSent) dispatch_sync(dispatch_get_main_queue(), ^{
+                isHandlerSent = true;
+                handler(returnArray, error);
+            });
+        });
+        
+        
         for(CampusModel* model in returnArray){
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:model.address completionHandler:^(NSArray* placemarks, NSError* error){
@@ -117,6 +130,7 @@
 
                     if(returnArray.count == geocodedModelsCount){
                         if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
+                            isHandlerSent = true;
                             handler(returnArray, error);
                         });
                         return;
@@ -128,5 +142,37 @@
         }
     });
 }
+
+
++(CampusModel*) getNearestCampusFromList:(NSArray*)campusList withLatitude:(float)latitude andLongitude:(float)longitude {
+    
+    //variables communes privés
+    int R = 6371; //radius de la terre
+    
+    double shortestDistance = -1;
+    CampusModel* nearestCampus;
+    
+    for(int i = 0; i < campusList.count; i++){
+        CampusModel* model = campusList[i];
+        if(model.longitude != nil && model.latitude != nil){
+            float latDistance = (model.latitude.floatValue - latitude) * M_PI / 180.0;
+            float lngDistance = (model.longitude.floatValue - longitude) * M_PI / 180.0;
+            
+            double a = sin(latDistance/2) * sin(latDistance/2)
+                + cos(latitude * M_PI/180.0) * cos(model.latitude.floatValue * M_PI / 180.0)
+            * sin(lngDistance/2) * sin(lngDistance/2);
+            double c = 2 * atan2(sqrt(a), sqrt(1-a));
+            double distance = R * c * 1000;
+            
+            if(shortestDistance == -1 || shortestDistance > distance){
+                shortestDistance = distance;
+                nearestCampus = model;
+            }
+        }
+    }
+    
+    return nearestCampus;
+}
+
 
 @end
