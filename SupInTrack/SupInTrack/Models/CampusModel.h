@@ -13,11 +13,11 @@
 
 @interface CampusModel : NSObject
 
-@property(nonatomic, weak) NSString* name;
-@property(nonatomic, weak) NSString* pageUrl;
-@property(nonatomic, weak) NSString* address;
-@property(nonatomic, weak) NSNumber* latitude;
-@property(nonatomic, weak) NSNumber* longitude;
+@property(atomic, strong) NSString* name;
+@property(atomic, strong) NSString* pageUrl;
+@property(atomic, strong) NSString* address;
+@property(atomic, strong) NSNumber* latitude;
+@property(atomic, strong) NSNumber* longitude;
 
 @end
 

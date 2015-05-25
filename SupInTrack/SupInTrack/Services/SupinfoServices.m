@@ -23,7 +23,8 @@
         });
         return;
     }
-    NSMutableArray* returnArray = [[NSMutableArray alloc] init];
+    __block int geocodedModelsCount = 0;
+    __block NSMutableArray* returnArray = [[NSMutableArray alloc] init];
     
     //Application regex
     NSRegularExpression* regexCampusList = [NSRegularExpression regularExpressionWithPattern:REGEX_CAMPUS_LIST options:0 error:&error];
@@ -96,39 +97,36 @@
         }
         
     }
-        if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
-            handler(returnArray, error);
-        });
-    });
-    /*//Geocoding
-    for(CampusModel* model in returnArray){
-        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-        [geocoder geocodeAddressString:model.address completionHandler:^(NSArray* placemarks, NSError* error){
-            geocodedModelsCount++;
-            
-            for (CLPlacemark* aPlacemark in placemarks)
-            {
-                if(error != nil){
-                    NSLog(error.description);
-                }
+        
+        
+        
+        //Geocoding
+        for(CampusModel* model in returnArray){
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            [geocoder geocodeAddressString:model.address completionHandler:^(NSArray* placemarks, NSError* error){
+                geocodedModelsCount++;
                 
-                //NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
-                //NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
-                model.longitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.longitude];
-                model.latitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.latitude];
-                
-                NSLog([NSString stringWithFormat:@"a %ld", returnArray.count]);
-                NSLog([NSString stringWithFormat:@"b %d", geocodedModelsCount]);
-                if(returnArray.count == geocodedModelsCount){
-                    if(handler != nil) handler(returnArray, error);
-                    NSLog(@"call handler");
-                    return;
-                }
-                
-            }
-        }];
+                for (CLPlacemark* aPlacemark in placemarks)
+                {
+                    if(error != nil){
+                        NSLog(error.description);
+                    }
 
-    }*/
+                    model.longitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.longitude];
+                    model.latitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.latitude];
+
+                    if(returnArray.count == geocodedModelsCount){
+                        if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
+                            handler(returnArray, error);
+                        });
+                        return;
+                    }
+                    
+                }
+            }];
+            
+        }
+    });
 }
 
 @end
