@@ -11,12 +11,16 @@
 @implementation SupinfoServices
 
 +(void) getCampusesFromSupinfoWebsiteWithCompletionHandler:(void(^)(NSArray * result, NSError* error))handler{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        
     NSError* error;
     //Récupération de la page web
     NSString* htmlString = [NSString stringWithContentsOfURL: [NSURL URLWithString:@"http://www.supinfo.com/campus"] encoding:NSUTF8StringEncoding error:&error];
     
     if(error != nil){
-        if(handler != nil) handler(nil, error);
+        if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
+            handler(nil, error);
+        });
         return;
     }
     NSMutableArray* returnArray = [[NSMutableArray alloc] init];
@@ -59,7 +63,9 @@
             //Obtention des details depuis la page du campus
             NSString* htmlDetailsString = [NSString stringWithContentsOfURL: [NSURL URLWithString:campusLink] encoding:NSUTF8StringEncoding error:&error];
             if(error != nil){
-                if(handler != nil) handler(nil, error);
+                if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
+                    handler(nil, error);
+                });
                 return;
             }
             
@@ -84,25 +90,45 @@
                 NSString* addressLine2 = [campusName stringByReplacingOccurrencesOfString:@"SUPINFO " withString:@""];
                 NSString* addressFinal = [NSString stringWithFormat:@"%@ %@", addressLine1, addressLine2];
                 model.address = addressFinal;
-                
-                //Geocoding
-                CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-                [geocoder geocodeAddressString:addressFinal completionHandler:^(NSArray* placemarks, NSError* error){
-                    for (CLPlacemark* aPlacemark in placemarks)
-                    {
-                        // Process the placemark.
-                        NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
-                        NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
-                        NSLog(latDest1);
-                        NSLog(lngDest1);
-                    }
-                }];
+                [returnArray addObject:model];
             }
             
         }
-
         
     }
+        if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
+            handler(returnArray, error);
+        });
+    });
+    /*//Geocoding
+    for(CampusModel* model in returnArray){
+        CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+        [geocoder geocodeAddressString:model.address completionHandler:^(NSArray* placemarks, NSError* error){
+            geocodedModelsCount++;
+            
+            for (CLPlacemark* aPlacemark in placemarks)
+            {
+                if(error != nil){
+                    NSLog(error.description);
+                }
+                
+                //NSString *latDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.latitude];
+                //NSString *lngDest1 = [NSString stringWithFormat:@"%.4f",aPlacemark.location.coordinate.longitude];
+                model.longitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.longitude];
+                model.latitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.latitude];
+                
+                NSLog([NSString stringWithFormat:@"a %ld", returnArray.count]);
+                NSLog([NSString stringWithFormat:@"b %d", geocodedModelsCount]);
+                if(returnArray.count == geocodedModelsCount){
+                    if(handler != nil) handler(returnArray, error);
+                    NSLog(@"call handler");
+                    return;
+                }
+                
+            }
+        }];
+
+    }*/
 }
 
 @end
