@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		E11BD64D1B14E7FF006911FE /* CompassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BD64C1B14E7FF006911FE /* CompassViewController.m */; };
+		E1269AB01B16631D00435AC6 /* icon_compass.png in Resources */ = {isa = PBXBuildFile; fileRef = E1269AAF1B16631D00435AC6 /* icon_compass.png */; };
+		E1269AB21B16634200435AC6 /* icon_list.png in Resources */ = {isa = PBXBuildFile; fileRef = E1269AB11B16634200435AC6 /* icon_list.png */; };
 		E15B52AA1B0F3445000AF2B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52A91B0F3445000AF2B9 /* main.m */; };
 		E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */; };
 		E15B52B01B0F3445000AF2B9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AF1B0F3445000AF2B9 /* LoadViewController.m */; };
@@ -38,6 +40,8 @@
 /* Begin PBXFileReference section */
 		E11BD64B1B14E7F1006911FE /* CompassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CompassViewController.h; path = ViewControllers/CompassViewController.h; sourceTree = "<group>"; };
 		E11BD64C1B14E7FF006911FE /* CompassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompassViewController.m; path = ViewControllers/CompassViewController.m; sourceTree = "<group>"; };
+		E1269AAF1B16631D00435AC6 /* icon_compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_compass.png; path = Images/icon_compass.png; sourceTree = "<group>"; };
+		E1269AB11B16634200435AC6 /* icon_list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon_list.png; path = Images/icon_list.png; sourceTree = "<group>"; };
 		E15B52A41B0F3445000AF2B9 /* SupInTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupInTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B52A81B0F3445000AF2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15B52A91B0F3445000AF2B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 		E1B69D7D1B15AED0008E60CA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E1269AB11B16634200435AC6 /* icon_list.png */,
+				E1269AAF1B16631D00435AC6 /* icon_compass.png */,
 				E1B69D7E1B15AEDB008E60CA /* compass.fw.png */,
 			);
 			name = Images;
@@ -298,8 +304,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E15B52B31B0F3445000AF2B9 /* Main.storyboard in Resources */,
+				E1269AB01B16631D00435AC6 /* icon_compass.png in Resources */,
 				E15B52B81B0F3445000AF2B9 /* LaunchScreen.xib in Resources */,
 				E1B69D7F1B15AEDB008E60CA /* compass.fw.png in Resources */,
+				E1269AB21B16634200435AC6 /* icon_list.png in Resources */,
 				E15B52B51B0F3445000AF2B9 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
