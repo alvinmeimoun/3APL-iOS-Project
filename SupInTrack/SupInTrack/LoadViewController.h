@@ -15,6 +15,7 @@
 @interface LoadViewController : UIViewController <CLLocationManagerDelegate>
 
 @property(nonatomic, strong) CampusModel* nearestCampus;
+@property(nonatomic, strong) NSArray* campusList;
 
 -(void) doLoad;
 

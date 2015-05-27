@@ -20,6 +20,8 @@
 		E1B20D5D1B1213DD007CEF8E /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E1B20D5C1B1213DD007CEF8E /* libxml2.dylib */; };
 		E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B20D601B12223C007CEF8E /* CampusModel.m */; };
 		E1B69D7F1B15AEDB008E60CA /* compass.fw.png in Resources */ = {isa = PBXBuildFile; fileRef = E1B69D7E1B15AEDB008E60CA /* compass.fw.png */; };
+		E1B69D821B15C696008E60CA /* CampusListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B69D811B15C696008E60CA /* CampusListViewController.m */; };
+		E1B69D861B15CAA4008E60CA /* CampusListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E1B69D851B15CAA4008E60CA /* CampusListCell.m */; };
 		E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */ = {isa = PBXBuildFile; fileRef = E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */; };
 /* End PBXBuildFile section */
 
@@ -57,6 +59,10 @@
 		E1B20D5F1B122214007CEF8E /* CampusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CampusModel.h; path = Models/CampusModel.h; sourceTree = "<group>"; };
 		E1B20D601B12223C007CEF8E /* CampusModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CampusModel.m; path = Models/CampusModel.m; sourceTree = "<group>"; };
 		E1B69D7E1B15AEDB008E60CA /* compass.fw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = compass.fw.png; sourceTree = "<group>"; };
+		E1B69D801B15C688008E60CA /* CampusListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CampusListViewController.h; path = ViewControllers/CampusListViewController.h; sourceTree = "<group>"; };
+		E1B69D811B15C696008E60CA /* CampusListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CampusListViewController.m; path = ViewControllers/CampusListViewController.m; sourceTree = "<group>"; };
+		E1B69D841B15CA3E008E60CA /* CampusListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CampusListCell.h; path = Cells/CampusListCell.h; sourceTree = "<group>"; };
+		E1B69D851B15CAA4008E60CA /* CampusListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CampusListCell.m; path = Cells/CampusListCell.m; sourceTree = "<group>"; };
 		E1E9D8A61B0F5D43004DF9E0 /* SupinfoServices.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SupinfoServices.m; path = Services/SupinfoServices.m; sourceTree = "<group>"; };
 		E1E9D8A81B0F5D54004DF9E0 /* SupinfoServices.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SupinfoServices.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,8 @@
 			children = (
 				E11BD64B1B14E7F1006911FE /* CompassViewController.h */,
 				E11BD64C1B14E7FF006911FE /* CompassViewController.m */,
+				E1B69D801B15C688008E60CA /* CampusListViewController.h */,
+				E1B69D811B15C696008E60CA /* CampusListViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +119,7 @@
 		E15B52A61B0F3445000AF2B9 /* SupInTrack */ = {
 			isa = PBXGroup;
 			children = (
+				E1B69D831B15CA29008E60CA /* Cells */,
 				E1B69D7D1B15AED0008E60CA /* Images */,
 				E11BD64A1B14E7D8006911FE /* ViewControllers */,
 				E184A9F61B13B01700E800F9 /* Extensions */,
@@ -188,6 +197,15 @@
 				E1B69D7E1B15AEDB008E60CA /* compass.fw.png */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		E1B69D831B15CA29008E60CA /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				E1B69D841B15CA3E008E60CA /* CampusListCell.h */,
+				E1B69D851B15CAA4008E60CA /* CampusListCell.m */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 		E1E9D8A51B0F5A02004DF9E0 /* Services */ = {
@@ -303,6 +321,8 @@
 				E1E9D8A71B0F5D43004DF9E0 /* SupinfoServices.m in Sources */,
 				E15B52B01B0F3445000AF2B9 /* LoadViewController.m in Sources */,
 				E1B20D5A1B12137B007CEF8E /* GDataXMLNode.m in Sources */,
+				E1B69D821B15C696008E60CA /* CampusListViewController.m in Sources */,
+				E1B69D861B15CAA4008E60CA /* CampusListCell.m in Sources */,
 				E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */,
 				E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */,
 				E15B52AA1B0F3445000AF2B9 /* main.m in Sources */,

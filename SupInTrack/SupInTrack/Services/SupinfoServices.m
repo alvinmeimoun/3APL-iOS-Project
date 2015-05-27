@@ -101,7 +101,6 @@
         
         
         //Geocoding
-        
         for(CampusModel* model in returnArray){
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder geocodeAddressString:model.address completionHandler:^(NSArray* placemarks, NSError* error){
@@ -117,9 +116,9 @@
                     model.latitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.latitude];
 
                     if(returnArray.count == geocodedModelsCount){
-                        if(handler != nil) /*dispatch_sync(dispatch_get_main_queue(), ^*/{
+                        if(handler != nil) {
                             handler(returnArray, error);
-                        }/*);*/
+                        }
                         return;
                     }
                     

@@ -19,9 +19,9 @@
 @implementation LoadViewController
 
 @synthesize nearestCampus;
+@synthesize campusList;
 
 CLLocationManager* locationManager;
-NSArray* campusList;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
