@@ -151,8 +151,17 @@
             double c = 2 * atan2(sqrt(a), sqrt(1-a));
             double distance = R * c * 1000;
             
-            //bind de la distance au ViewModel
+            //Dind de la distance au ViewModel
             model.distance = [NSNumber numberWithDouble:distance];
+            
+            //Bind de l'angle au ViewModel
+            double phiK = model.latitude.doubleValue * M_PI / 180.0;
+            double lambdaK = model.longitude.doubleValue * M_PI / 180.0;
+            double phi = latitude * M_PI / 180.0;
+            double lamba = longitude * M_PI / 180.0;
+            double psi = 180.0 / M_PI * atan2(sin(lambdaK - lamba), cos(phi) * tan(phiK) - sin(phi) * cos(lambdaK - lamba));
+            double angle = round(psi);
+            model.angle = [NSNumber numberWithDouble:angle];
             
             if(shortestDistance == -1 || shortestDistance > distance){
                 shortestDistance = distance;

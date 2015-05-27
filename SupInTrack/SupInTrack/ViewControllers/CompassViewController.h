@@ -11,11 +11,12 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 #import "../Models/CampusModel.h"
 #import "../LoadViewController.h"
 
-@interface CompassViewController : UIViewController
+@interface CompassViewController : UIViewController <CLLocationManagerDelegate>
 
 -(void) bindCampus:(CampusModel*)model;
 

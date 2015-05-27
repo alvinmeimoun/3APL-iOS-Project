@@ -16,5 +16,6 @@
 @synthesize latitude;
 @synthesize longitude;
 @synthesize distance;
+@synthesize angle;
 
 @end

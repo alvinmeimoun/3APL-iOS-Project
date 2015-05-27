@@ -19,6 +19,7 @@
 @property(atomic, strong) NSNumber* latitude;
 @property(atomic, strong) NSNumber* longitude;
 @property(atomic, strong) NSNumber* distance;
+@property(atomic, strong) NSNumber* angle;
 
 @end
 
