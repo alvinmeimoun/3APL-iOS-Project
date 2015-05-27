@@ -21,8 +21,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    printf("%lu", (unsigned long)self.navigationController.viewControllers.count);
-    
     LoadViewController* parentLoadController = (LoadViewController*)self.navigationController.viewControllers[0];
     if(parentLoadController != nil && parentLoadController.nearestCampus != nil){
         [self bindCampus:parentLoadController.nearestCampus];
@@ -32,6 +30,7 @@
 
 -(void) bindCampus:(CampusModel*)model {
     [self.campusNameLabel setText:model.name];
+    [self.distanceLabel setText:[NSString stringWithFormat:@"%.1f km", model.distance.doubleValue/1000]];
 }
 
 - (void)didReceiveMemoryWarning {

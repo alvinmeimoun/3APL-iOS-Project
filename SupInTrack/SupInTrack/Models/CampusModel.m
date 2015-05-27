@@ -15,5 +15,6 @@
 @synthesize address;
 @synthesize latitude;
 @synthesize longitude;
+@synthesize distance;
 
 @end

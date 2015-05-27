@@ -151,6 +151,9 @@
             double c = 2 * atan2(sqrt(a), sqrt(1-a));
             double distance = R * c * 1000;
             
+            //bind de la distance au ViewModel
+            model.distance = [NSNumber numberWithDouble:distance];
+            
             if(shortestDistance == -1 || shortestDistance > distance){
                 shortestDistance = distance;
                 nearestCampus = model;
