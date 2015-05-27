@@ -9,6 +9,9 @@
 #import "CompassViewController.h"
 
 @interface CompassViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *compassView;
+@property (weak, nonatomic) IBOutlet UILabel *campusNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *distanceLabel;
 
 @end
 
@@ -28,7 +31,7 @@
 }
 
 -(void) bindCampus:(CampusModel*)model {
-    NSLog(model.name);
+    [self.campusNameLabel setText:model.name];
 }
 
 - (void)didReceiveMemoryWarning {

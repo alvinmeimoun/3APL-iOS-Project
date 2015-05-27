@@ -75,8 +75,60 @@
                     <view key="view" contentMode="scaleToFill" id="fBL-vI-t3S">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compass.fw.png" translatesAutoresizingMaskIntoConstraints="NO" id="aSE-xC-aAX">
+                                <rect key="frame" x="225" y="130" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="tjC-SF-15q"/>
+                                    <constraint firstAttribute="width" constant="150" id="xGF-B6-u4a"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgs-QT-WXY">
+                                <rect key="frame" x="16" y="324" width="568" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="264-jr-yUl"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xdu-I8-eBq">
+                                <rect key="frame" x="250" y="293" width="100" height="14"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="14" id="S4M-am-Il4"/>
+                                    <constraint firstAttribute="width" constant="100" id="k8s-fy-cQD"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zmq-rI-1kn">
+                                <rect key="frame" x="16" y="387" width="563" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="flo-In-bWQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zmq-rI-1kn" secondAttribute="trailing" constant="21" id="1nn-Qb-0ca"/>
+                            <constraint firstItem="zmq-rI-1kn" firstAttribute="leading" secondItem="fBL-vI-t3S" secondAttribute="leading" constant="16" id="GPu-2u-jXq"/>
+                            <constraint firstAttribute="centerX" secondItem="Xdu-I8-eBq" secondAttribute="centerX" id="MnI-sI-X3G"/>
+                            <constraint firstItem="zmq-rI-1kn" firstAttribute="top" secondItem="wgs-QT-WXY" secondAttribute="bottom" constant="8" id="Oxp-CO-Fj7"/>
+                            <constraint firstItem="Xdu-I8-eBq" firstAttribute="top" secondItem="aSE-xC-aAX" secondAttribute="bottom" constant="13" id="RiO-M6-Uq8"/>
+                            <constraint firstAttribute="centerY" secondItem="Xdu-I8-eBq" secondAttribute="centerY" id="WYl-Vh-VA3"/>
+                            <constraint firstItem="wgs-QT-WXY" firstAttribute="top" secondItem="Xdu-I8-eBq" secondAttribute="bottom" constant="17" id="XO5-d4-eRN"/>
+                            <constraint firstAttribute="centerX" secondItem="aSE-xC-aAX" secondAttribute="centerX" id="YPD-zY-YAX"/>
+                            <constraint firstAttribute="trailing" secondItem="wgs-QT-WXY" secondAttribute="trailing" constant="16" id="dvc-g8-NZh"/>
+                            <constraint firstItem="wgs-QT-WXY" firstAttribute="leading" secondItem="fBL-vI-t3S" secondAttribute="leading" constant="16" id="sIs-YU-MSr"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="campusNameLabel" destination="wgs-QT-WXY" id="yz9-0n-y7B"/>
+                        <outlet property="compassView" destination="aSE-xC-aAX" id="lQZ-W3-iFE"/>
+                        <outlet property="distanceLabel" destination="zmq-rI-1kn" id="2J8-MK-nuA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qoz-wB-cS6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -101,4 +153,7 @@
             <point key="canvasLocation" x="695" y="357"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="compass.fw.png" width="200" height="200"/>
+    </resources>
 </document>
