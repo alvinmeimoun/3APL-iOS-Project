@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1577" y="366"/>
         </scene>
-        <!--View Controller-->
+        <!--Compass View Controller-->
         <scene sceneID="7Ct-8M-WNi">
             <objects>
-                <viewController id="t3J-0w-nGs" sceneMemberID="viewController">
+                <viewController id="t3J-0w-nGs" customClass="CompassViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pwA-Hq-7E9"/>
                         <viewControllerLayoutGuide type="bottom" id="84B-av-ZhI"/>

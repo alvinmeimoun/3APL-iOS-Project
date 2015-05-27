@@ -18,10 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*LoadViewController* parentLoadController = (LoadViewController*)[self parentViewController];
+    printf("%lu", (unsigned long)self.navigationController.viewControllers.count);
+    
+    LoadViewController* parentLoadController = (LoadViewController*)self.navigationController.viewControllers[0];
     if(parentLoadController != nil && parentLoadController.nearestCampus != nil){
         [self bindCampus:parentLoadController.nearestCampus];
-    }*/
+    }
     
 }
 
