@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E11BD64D1B14E7FF006911FE /* CompassViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E11BD64C1B14E7FF006911FE /* CompassViewController.m */; };
 		E15B52AA1B0F3445000AF2B9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52A91B0F3445000AF2B9 /* main.m */; };
 		E15B52AD1B0F3445000AF2B9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AC1B0F3445000AF2B9 /* AppDelegate.m */; };
 		E15B52B01B0F3445000AF2B9 /* LoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E15B52AF1B0F3445000AF2B9 /* LoadViewController.m */; };
@@ -32,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E11BD64B1B14E7F1006911FE /* CompassViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CompassViewController.h; path = ViewControllers/CompassViewController.h; sourceTree = "<group>"; };
+		E11BD64C1B14E7FF006911FE /* CompassViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CompassViewController.m; path = ViewControllers/CompassViewController.m; sourceTree = "<group>"; };
 		E15B52A41B0F3445000AF2B9 /* SupInTrack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SupInTrack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15B52A81B0F3445000AF2B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E15B52A91B0F3445000AF2B9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -75,6 +78,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E11BD64A1B14E7D8006911FE /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				E11BD64B1B14E7F1006911FE /* CompassViewController.h */,
+				E11BD64C1B14E7FF006911FE /* CompassViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		E15B529B1B0F3445000AF2B9 = {
 			isa = PBXGroup;
 			children = (
@@ -97,6 +109,7 @@
 		E15B52A61B0F3445000AF2B9 /* SupInTrack */ = {
 			isa = PBXGroup;
 			children = (
+				E11BD64A1B14E7D8006911FE /* ViewControllers */,
 				E184A9F61B13B01700E800F9 /* Extensions */,
 				E1B20D5E1B1221DE007CEF8E /* Models */,
 				E1B20D571B12130A007CEF8E /* Libs */,
@@ -282,6 +295,7 @@
 				E1B20D611B12223C007CEF8E /* CampusModel.m in Sources */,
 				E15B52AA1B0F3445000AF2B9 /* main.m in Sources */,
 				E184A9F91B13B05A00E800F9 /* CLLocationManager+Simulator.m in Sources */,
+				E11BD64D1B14E7FF006911FE /* CompassViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

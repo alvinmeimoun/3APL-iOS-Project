@@ -10,8 +10,11 @@
 #import <CoreLocation/CoreLocation.h>
 
 #import "Extensions/CLLocationManager+Simulator.h"
+#import "Models/CampusModel.h"
 
 @interface LoadViewController : UIViewController <CLLocationManagerDelegate>
+
+@property(nonatomic, strong) CampusModel* nearestCampus;
 
 -(void) doLoad;
 

@@ -11,11 +11,14 @@
 #import "SupinfoServices.h"
 
 @interface LoadViewController ()
+
 @property (weak, nonatomic) IBOutlet UILabel *lblLoadingProgress;
 
 @end
 
 @implementation LoadViewController
+
+@synthesize nearestCampus;
 
 CLLocationManager* locationManager;
 NSArray* campusList;
@@ -59,8 +62,10 @@ NSArray* campusList;
     [self.lblLoadingProgress setText:@"Recherche du campus le plus proche"];
     CLLocation* currentPosition = [locations lastObject];
     
-    CampusModel* nearestCampus = [SupinfoServices getNearestCampusFromList:campusList withLatitude:currentPosition.coordinate.latitude andLongitude:currentPosition.coordinate.longitude];
-    NSLog(nearestCampus.name);
+    nearestCampus = [SupinfoServices getNearestCampusFromList:campusList withLatitude:currentPosition.coordinate.latitude andLongitude:currentPosition.coordinate.longitude];
+    
+    
+    [self performSegueWithIdentifier:@"segue_show_compass" sender:self];
 }
 
 @end

@@ -101,18 +101,6 @@
         
         
         //Geocoding
-        __block BOOL isHandlerSent = false;
-        
-        //lancement timeout
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
-            [NSThread sleepForTimeInterval:5.0f];
-            
-            if(handler != nil && !isHandlerSent) dispatch_sync(dispatch_get_main_queue(), ^{
-                isHandlerSent = true;
-                handler(returnArray, error);
-            });
-        });
-        
         
         for(CampusModel* model in returnArray){
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
@@ -129,10 +117,9 @@
                     model.latitude = [NSNumber numberWithFloat:aPlacemark.location.coordinate.latitude];
 
                     if(returnArray.count == geocodedModelsCount){
-                        if(handler != nil) dispatch_sync(dispatch_get_main_queue(), ^{
-                            isHandlerSent = true;
+                        if(handler != nil) /*dispatch_sync(dispatch_get_main_queue(), ^*/{
                             handler(returnArray, error);
-                        });
+                        }/*);*/
                         return;
                     }
                     
